@@ -17,7 +17,7 @@ dataframe = pandas.read_csv(training_file)
 
 # split into labels and features, assuming labels are in first column
 array = dataframe.values
-X = array[:,1:len(array[0])-1]
+X = array[:,1:len(array[0])]
 Y = array[:,0]
 
 # prepare random seed for cross validation test harness

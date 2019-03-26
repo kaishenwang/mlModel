@@ -1,5 +1,14 @@
 import csv
 
+maxATagLen = 0.0
+for file in ['/data1/nsrg/kwang40/topDomainData/topDomainInfo.csv', '/home/kwang40/testExtractor/parkedInfo.csv']:
+    with open (file) as csvfile:
+        reader = csv.DictReader(csvfile)
+            for row in reader:
+                if float(row['aTagCount']) != 0:
+                    aTagLen = float(row['aTagLen']) / float(row['aTagCount'])
+                    maxATagLen = max(aTagLen, maxATagLen)
+
 topParkedDomains = {}
 with open('/home/kwang40/parkedDomainHeuristic/topDomainsByID.txt') as f:
     for line in f:
@@ -32,6 +41,7 @@ with open ('/data1/nsrg/kwang40/topDomainData/topDomainInfo.csv') as csvfile:
             aTagLen = 0
             if float(row['aTagCount']) != 0:
                 aTagLen = float(row['aTagLen']) / float(row['aTagCount'])
+                aTagLen = aTagLen / maxATagLen
             f.write(str(aTagLen) + ',')
             f.write(row['index'] + ',')
             f.write(row['follow'] + ',')
@@ -60,6 +70,7 @@ with open ('/home/kwang40/testExtractor/parkedInfo.csv') as csvfile:
             aTagLen = 0
             if float(row['aTagCount']) != 0:
                 aTagLen = float(row['aTagLen']) / float(row['aTagCount'])
+                aTagLen = aTagLen / maxATagLen
             f.write(str(aTagLen) + ',')
             f.write(row['index'] + ',')
             f.write(row['follow'] + ',')
@@ -79,7 +90,7 @@ with open ('data.csv', 'w') as f:
     parkStep = len(parkDomainResult) / 10000 - 2
     for i in range(20000):
         if i % 2 == 1:
-            f.write(parkDomainResult[parkIdx]) 
+            f.write(parkDomainResult[parkIdx])
             parkIdx += parkStep
         else:
             f.write(nonParkDomainResult[nonParkIdx])
@@ -111,6 +122,7 @@ with open ('/data1/nsrg/kwang40/topDomainData/topDomainInfo.csv') as csvfile:
             aTagLen = 0
             if float(row['aTagCount']) != 0:
                 aTagLen = float(row['aTagLen']) / float(row['aTagCount'])
+                aTagLen = aTagLen / maxATagLen
             f.write(str(aTagLen) + ',')
             f.write(row['index'] + ',')
             f.write(row['follow'] + ',')
@@ -128,8 +140,8 @@ with open ('/home/kwang40/testExtractor/parkedInfo.csv') as csvfile:
         f.write('index,follow,archive,snippet,translate,imageindex,unavailable_afteri,url\n')
 
         for row in reader:
-            if row['domain'] in domains:    
-                continue            
+            if row['domain'] in domains:
+                continue
             domains[row['domain']] = True
             f.write('1,')
             pageLen = 0.0
@@ -143,6 +155,7 @@ with open ('/home/kwang40/testExtractor/parkedInfo.csv') as csvfile:
             aTagLen = 0
             if float(row['aTagCount']) != 0:
                 aTagLen = float(row['aTagLen']) / float(row['aTagCount'])
+                aTagLen = aTagLen / maxATagLen
             f.write(str(aTagLen) + ',')
             f.write(row['index'] + ',')
             f.write(row['follow'] + ',')

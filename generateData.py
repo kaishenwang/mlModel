@@ -41,7 +41,7 @@ with open ('/data1/nsrg/kwang40/topDomainData/topDomainInfo.csv') as csvfile:
                 pageLen = float(row['rawPageLen'])
                 textTotalRatio = (float(row['headTextLen']) + float(row['bodyTextLen'])) / pageLen
                 jsCodeTotalRatio = float(row['codeLen']) / pageLen
-            f.write(str(row['rawPageLen']/maxPageLen) + ',' + str(textTotalRatio) + ',' + str(jsCodeTotalRatio) + ',')
+            f.write(str(float(row['rawPageLen'])/maxPageLen) + ',' + str(textTotalRatio) + ',' + str(jsCodeTotalRatio) + ',')
             aTagLen = 0
             if float(row['aTagCount']) != 0:
                 aTagLen = float(row['aTagLen']) / float(row['aTagCount'])
@@ -70,7 +70,7 @@ with open ('/home/kwang40/testExtractor/parkedInfo.csv') as csvfile:
                 pageLen = float(row['rawPageLen'])
                 textTotalRatio = (float(row['headTextLen']) + float(row['bodyTextLen'])) / pageLen
                 jsCodeTotalRatio = float(row['codeLen']) / pageLen
-            f.write(str(row['rawPageLen']/maxPageLen) + ',' + str(textTotalRatio) + ',' + str(jsCodeTotalRatio) + ',')
+            f.write(str(float(row['rawPageLen'])/maxPageLen) + ',' + str(textTotalRatio) + ',' + str(jsCodeTotalRatio) + ',')
             aTagLen = 0
             if float(row['aTagCount']) != 0:
                 aTagLen = float(row['aTagLen']) / float(row['aTagCount'])
@@ -122,7 +122,7 @@ with open ('/data1/nsrg/kwang40/topDomainData/topDomainInfo.csv') as csvfile:
                 pageLen = float(row['rawPageLen'])
                 textTotalRatio = (float(row['headTextLen']) + float(row['bodyTextLen'])) / pageLen
                 jsCodeTotalRatio = float(row['codeLen']) / pageLen
-            f.write(str(row['rawPageLen']/maxPageLen) + ',' + str(textTotalRatio) + ',' + str(jsCodeTotalRatio) + ',' + row['frameCount'] + ',')
+            f.write(str(float(row['rawPageLen'])/maxPageLen) + ',' + str(textTotalRatio) + ',' + str(jsCodeTotalRatio) + ',' + row['frameCount'] + ',')
             aTagLen = 0
             if float(row['aTagCount']) != 0:
                 aTagLen = float(row['aTagLen']) / float(row['aTagCount'])
@@ -155,7 +155,7 @@ with open ('/home/kwang40/testExtractor/parkedInfo.csv') as csvfile:
                 pageLen = float(row['rawPageLen'])
                 textTotalRatio = (float(row['headTextLen']) + float(row['bodyTextLen'])) / pageLen
                 jsCodeTotalRatio = float(row['codeLen']) / pageLen
-            f.write(str(row['rawPageLen']/maxPageLen) + ',' + str(textTotalRatio) + ',' + str(jsCodeTotalRatio) + ',' + row['frameCount'] + ',')
+            f.write(str(float(row['rawPageLen'])/maxPageLen) + ',' + str(textTotalRatio) + ',' + str(jsCodeTotalRatio) + ',' + row['frameCount'] + ',')
             aTagLen = 0
             if float(row['aTagCount']) != 0:
                 aTagLen = float(row['aTagLen']) / float(row['aTagCount'])

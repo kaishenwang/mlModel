@@ -3,6 +3,9 @@ detected = {}
 with open('/home/kwang40/parkedDomainHeuristic/fullParkedDomains.txt') as f:
     for line in f:
         detected[line.rstrip()] = True
+with open('freenom.txt') as f:
+    for line in f:
+        detected[line.rstrip()] = True
 
 # get domains
 domainList = []

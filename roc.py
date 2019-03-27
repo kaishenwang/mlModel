@@ -23,7 +23,7 @@ X = array[:,1:len(array[0])]
 Y = array[:,0]
 y = label_binarize(Y, classes=[0,1])
 n_classes = y.shape[1]
-X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=.5,
+X_train, X_test, y_train, y_test = train_test_split(X, Y,
                                                     random_state=7)
 
 clf = RandomForestClassifier(n_estimators=500, max_depth=30, random_state=7)

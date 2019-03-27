@@ -21,8 +21,8 @@ with open('predictionResult.txt') as f:
         idx = 0
         for line in f:
             if line[0] == '1':
-                count += 0
-            if domainList[idx] not in detected:
-                f2.write(domainList[idx] + '\n')
-
+                count += 1
+                if domainList[idx] not in detected:
+                    f2.write(domainList[idx] + '\n')
+            idx += 1
 print ('Total Count is ' + str(count))

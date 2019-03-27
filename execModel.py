@@ -20,12 +20,12 @@ clf.fit(X, Y)
 importances = clf.feature_importances_
 indices = np.argsort(importances)[::-1]
 feat_labels = dataframe.columns[1:]
-for f in range(XT.shape[1]):
+for f in range(X.shape[1]):
     print("%2d) %-*s %f" % (f + 1, 30, feat_labels[indices[f]], importances[indices[f]]))
 
 # apply model
-dataframe = pands.read_csv('fullDataPrepared.csv')
-array = fullData.values
+dataframe = pandas.read_csv('fullDataPrepared.csv')
+array = dataframe.values
 predictRes = clf.predict(array[:,1:len(array[0])])
 print('Finish predicting.')
 with open('predictionResult.txt', 'w') as f:

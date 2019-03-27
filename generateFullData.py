@@ -15,7 +15,7 @@ for file in ['/data1/nsrg/kwang40/topDomainData/topDomainInfo.csv', '/home/kwang
 with open ('/home/kwang40/mlModel/fullDataInfo.csv') as csvfile:
     reader = csv.DictReader(csvfile)
     with open ('fullDataPrepared.csv', 'w') as f:
-        f.write('parked,rawPageLen,textTotalRatio,jsCodeTotalRatio,aTagLen')
+        f.write('parked,rawPageLen,textTotalRatio,jsCodeTotalRatio,aTagLen,')
         f.write('index,follow,archive\n')
         for row in reader:
             f.write('1,')
@@ -39,7 +39,7 @@ with open ('/home/kwang40/mlModel/fullDataInfo.csv') as csvfile:
 with open ('/home/kwang40/mlModel/fullDataInfo.csv') as csvfile:
     reader = csv.DictReader(csvfile)
     with open ('fullDataPreparedWithURL.csv', 'w') as f:
-        f.write('parked,URL,rawPageLen,textTotalRatio,jsCodeTotalRatio,aTagLen')
+        f.write('parked,URL,rawPageLen,textTotalRatio,jsCodeTotalRatio,aTagLen,i')
         f.write('index,follow,archive\n')
         for row in reader:
             f.write('1,' + row['domain'] + ',')

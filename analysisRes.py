@@ -6,7 +6,9 @@ with open('/home/kwang40/parkedDomainHeuristic/fullParkedDomains.txt') as f:
 with open('freenom.txt') as f:
     for line in f:
         detected[line.rstrip()] = True
-
+with open('badGateway.txt') as f:
+    for line in f:
+        detected[line.rstrip()] = True
 # get domains
 domainList = []
 with open('fullDataPreparedWithURL.csv') as f:
